@@ -20,7 +20,7 @@ L2 = ttk.Label(text="Price", font = Font1)
 L2.pack()
 
 v_price = StringVar()
-
+v_price.set(0)
 B2 = ttk.Entry(GUI, textvariable=v_price)
 B2.pack(pady= 10)
 
@@ -29,7 +29,7 @@ L3 = ttk.Label(text="Amount", font = Font1)
 L3.pack()
 
 v_amount = StringVar()
-
+v_amount.set("0")
 B3 = ttk.Entry(GUI, textvariable=v_amount)
 B3.pack(pady= 10)
 

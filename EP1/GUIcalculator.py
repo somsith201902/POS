@@ -2,4 +2,4 @@
 
 import tkinter as tk
 
-GUI = tk.Tk()
+GUaI = tk.Tk()

@@ -30,8 +30,10 @@ def Calc():
     pd = v_product.get()
     pc = v_price.get()
     am = v_amount.get()
-    rs = int(pc) * int(am)
-    v_result.set(f"result = {rs}")
+    cal = int(pc) * int(am)
+    rs = f"Product : {pd}\nPrice : {pc}\namount : {am}\nTotal : {cal}" 
+    v_result.set(rs)
+    print(rs)
 
     
 button1 = Button(text="Calculator", font=(font1[0], 14), command=Calc)

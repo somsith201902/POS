@@ -10,7 +10,7 @@ Font1 = ("arial", 22)
 L1 = ttk.Label(text="Product", font = Font1)
 L1.pack()
 
-v_product = StringVar()
+v_product = StringVar() 
 
 B1 = ttk.Entry(GUI, textvariable=v_product)
 B1.pack(pady= 10)

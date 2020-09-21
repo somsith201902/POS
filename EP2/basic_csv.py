@@ -3,4 +3,6 @@ import csv
 
 def Write():
 	print("Writing...")
-	with open('data.csv', 'a', 'UTF-8')
+	with open('data.csv', 'a', encoding='utf-8') as file:
+
+		

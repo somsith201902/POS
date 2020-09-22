@@ -51,7 +51,6 @@ v_amount = StringVar() #box3
 
 B3 = ttk.Entry(F1, textvariable=v_amount) 
 B3.pack()
-
 #button
 
 def Write(listdata): 

@@ -1,8 +1,11 @@
 #basic_csv.py
 import csv
 
-def Write():
+def Write(listdata):
 	print("Writing...")
-	with open('data.csv', 'a', encoding='utf-8') as file:
-
+	# ( a = append , w = write)
+	with open('data.csv', 'a', newline='', encoding='utf-8') as file:
+		fw = csv.writer(file)
+		fw.writerow(listdata)
 		
+Write(["inter",21,1999])  

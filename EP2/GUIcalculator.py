@@ -1,6 +1,9 @@
 #GUIcalculator.py
 from tkinter import *
 from tkinter import ttk #theme for lable and entry
+import csv
+
+
 
 font_title = ("arial", 22)
 font_result= ("arial", 14)
@@ -37,11 +40,19 @@ B3.pack()
 
 #button
 
+def Write(listdata): 
+    print("Writing...")
+    with open('EP2/data.csv', 'a', newline='', encoding='UTF-8') as file:
+	    fw = csv.writer(file)
+	    fw.writerow(listdata)
+    print("Finished")
+
 def Calc():
     pd = v_product.get() # .get() พนักงานเปีดกล่องดุว่ามีอะไรบ้างในนั้น
     pc = v_price.get()
     am = v_amount.get()
     cal = int(pc) * int(am)
+    Write([pd,pc,am,cal])
     text_result = f'สินค้า : {pd}, ลาคา : {pc}, จำนวน : {am}'
     text_result = text_result + f'\nรวมคา {cal} '
     v_result.set(text_result)

@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter.ttk import Notebook
 import csv
 from datetime import datetime
 
@@ -9,32 +10,42 @@ GUI = Tk()
 GUI.title("EP2 Practice 1")
 GUI.geometry("350x500+650+200")
 
+### TAB ###
+Tab = Notebook(GUI)
+T1 = Frame(Tab)
+T2 = Frame(Tab)
+T3 = Frame(Tab)
+
+Tab.add(T1, text="Calculator")
+Tab.add(T2, text="Edit")
+Tab.add(T3, text="Selection")
+Tab.pack(fill=BOTH, expand=1)
 
 ### ROW 1 ###
-L1 = Label(GUI, text="Product", font=font1)
+L1 = Label(T1, text="Product", font=font1)
 L1.pack()
 
 v_product = StringVar()
 
-B1 = Entry(GUI, textvariable=v_product)
+B1 = Entry(T1, textvariable=v_product)
 B1.pack()
 
 ### ROW 2 ###
-L2 = Label(GUI, text="Price", font=font1)
+L2 = Label(T1, text="Price", font=font1)
 L2.pack()
 
 v_price = StringVar()
 
-B2 = Entry(GUI, textvariable=v_price)
+B2 = Entry(T1, textvariable=v_price)
 B2.pack()
 
 ### ROW 3 ###
-L3 = Label(GUI, text="Amount", font=font1)
+L3 = Label(T1, text="Amount", font=font1)
 L3.pack()
 
 v_amount = StringVar()
 
-B1 = Entry(GUI, textvariable=v_amount)
+B1 = Entry(T1, textvariable=v_amount)
 B1.pack()
 
 ### Button ###
@@ -57,14 +68,14 @@ def Calc():
     v_result.set(rs)
     Write([pd,pc,am,total,date])
 
-but1 = Button(GUI, text="Calculater",command=Calc)
+but1 = Button(T1, text="Calculater",command=Calc)
 but1.pack(pady=10)
 
 ### Result ###
 v_result = StringVar()
 v_result.set("--------- Result Here! ---------")
 
-result = Label(GUI, textvariable=v_result)
+result = Label(T2, textvariable=v_result)
 result.pack()
 
 GUI.mainloop()

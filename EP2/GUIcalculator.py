@@ -45,6 +45,7 @@ def Write(listdata):
     with open('EP2/data.csv', 'a', newline='', encoding='UTF-8') as file:
 	    fw = csv.writer(file)
 	    fw.writerow(listdata)
+    file.close()
     print("Finished")
 
 def Calc():

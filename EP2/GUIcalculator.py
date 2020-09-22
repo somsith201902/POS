@@ -42,9 +42,9 @@ B3.pack()
 
 def Write(listdata): 
     print("Writing...")
-	with open('EP2/data.csv', 'a', newline='', encoding='UTF-8') as file:
+    with open('EP2/data.csv', 'a', newline='', encoding='UTF-8') as file:
 	    fw = csv.writer(file)
-		fw.writerow(listdata)
+	    fw.writerow(listdata)
     print("Finished")
 
 def Calc():
@@ -52,6 +52,7 @@ def Calc():
     pc = v_price.get()
     am = v_amount.get()
     cal = int(pc) * int(am)
+    Write([pd,pc,am,cal])
     text_result = f'สินค้า : {pd}, ลาคา : {pc}, จำนวน : {am}'
     text_result = text_result + f'\nรวมคา {cal} '
     v_result.set(text_result)

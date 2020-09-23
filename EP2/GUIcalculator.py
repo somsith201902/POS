@@ -7,7 +7,7 @@ font_title = ("arial", 22)
 font_result= ("arial", 14)
 GUI = Tk()
 GUI.title('Program calculator')
-GUI.geometry('300x380+500+200') 
+GUI.geometry('760x780+500+200') 
 
 ## TAB 
 from tkinter.ttk import Notebook
@@ -55,7 +55,7 @@ B3.pack()
 
 def Write(listdata): 
     print("Writing...")
-    with open('EP2/data.csv', 'a', newline='', encoding='UTF-8') as file:
+    with open('EP2\data.csv', 'a', newline='', encoding='UTF-8') as file:
 	    f = csv.writer(file)
 	    f.writerow(listdata)
     print("Finished")

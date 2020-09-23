@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import csv
+from datetime import datetime
 
 #Font
 font1 = ("Arial", 22)
@@ -51,9 +52,10 @@ def Calc():
     pc = v_price.get()
     am = v_amount.get()
     total = int(pc) * int(am)
-    rs = f"Product : {pd}, Price : {pc}, Amount : {am}\n Total = {total}"
+    date = datetime.now().strftime("%I:%M:%S %p   %d/%m/%y")
+    rs = f"Product : {pd}, Price : {pc}, Amount : {am}\n Total = {total}\n\t\t  {date}"
     v_result.set(rs)
-    Write([pd,pc,am,total])
+    Write([pd,pc,am,total,date])
 
 but1 = Button(GUI, text="Calculater",command=Calc)
 but1.pack(pady=10)

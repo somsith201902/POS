@@ -91,7 +91,7 @@ R1.pack()
 
 #function
 def ReadData():
-    with open('EP2\data.csv', newline='', encoding='utf-8') as file:
+    with open('EP3\data.csv', newline='', encoding='utf-8') as file:
         fr = csv.reader(file)
         alldata = list(fr)
     return alldata

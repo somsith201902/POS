@@ -6,7 +6,6 @@ from datetime import datetime
 font_title = ("arial", 22)
 font_result= ("arial", 14)
 GUI = Tk()
-GUI.title('Program Minimart')
 GUI.geometry('650x750+450+25') 
 
 ## TAB 
@@ -58,7 +57,7 @@ B3.pack()
 
 def Write(listdata): 
     print("Writing...")
-    with open('EP2\data.csv', 'a', newline='', encoding='UTF-8') as file:
+    with open('EP3\data.csv', 'a', newline='', encoding='UTF-8') as file:
 	    f = csv.writer(file)
 	    f.writerow(listdata)
     print("Finished")
@@ -92,7 +91,7 @@ R1.pack()
 
 #function
 def ReadData():
-    with open('EP2\data.csv', newline='', encoding='utf-8') as file:
+    with open('EP3\data.csv', newline='', encoding='utf-8') as file:
         fr = csv.reader(file)
         alldata = list(fr)
     return alldata

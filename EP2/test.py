@@ -1,7 +1,18 @@
 #test.py
 
-import datetime
+# from datetime import datetime
 
-x = datetime.datetime(2020, 5, 17)
+# date = datetime.now().strftime("%a %d/%m/%Y %I:%H:%M %p ")
 
-print(x.strftime("%d"))
+# print(date)
+
+
+import csv
+
+def ReadData():
+    with open('EP2\data.csv', newline='', encoding='utf-8') as file:
+        fr = csv.reader(file)
+        alldata = list(fr)
+    return alldata
+
+ReadData()

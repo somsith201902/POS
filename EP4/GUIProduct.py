@@ -1,12 +1,16 @@
 #GUIcalculator.py
 from tkinter import *
 from tkinter import ttk #theme for lable and entry
+from CRUD import *
 import csv
+
+
 from datetime import datetime
 font_title = ("arial", 22)
 font_result= ("arial", 14)
 GUI = Tk()
-GUI.geometry('650x750+450+25') 
+GUI.title("pricetice4")
+GUI.geometry('1050x750+450+25') 
 
 ## TAB 
 from tkinter.ttk import Notebook
@@ -24,11 +28,18 @@ Tab.add(F4, text="History")
 Tab.pack(fill=BOTH, expand=1)
 
 
+
+
+
+
+
+
+
 ############## Add Product (Tab) ###################
 
 ## Row0
 L0 = ttk.Label(F2, text='Barcode', font=font_title)
-L0.pack(pady=10) # for c center aglin
+L0.pack(pady=10) # for c cen ter aglin
 v_barcode = StringVar() 
 B0 = ttk.Entry(F2, textvariable=v_barcode) 
 B0.pack()
@@ -90,11 +101,6 @@ R1.pack()
 ############### All Product (Tab) ###############
 
 #function
-def ReadData():
-    with open('EP3\data.csv', newline='', encoding='utf-8') as file:
-        fr = csv.reader(file)
-        alldata = list(fr)
-    return alldata
 
 apL1 = Label(F3, text="All Products", font=font_title)
 apL1.pack()
@@ -112,8 +118,42 @@ for hd,w in zip(header,w):
     apB1.column(hd, width=w)
 
 ## insert data ##
-alldata = ReadData()
+alldata = ReadData('EP4/data.csv')
 for dt in alldata:
     apB1.insert('', 'end', value=dt)
+
+############## Sales (Tab) ###################
+
+BF1 = Frame(F1)
+BF1.place(x=30, y=30)
+
+current_stock = ReadData('EP4/data.csv')
+row_count = 0
+for i in range(len(current_stock)):
     
+    if i % 3 == 0:        
+        B1 = ttk.Button(BF1,text=current_stock[i][1])
+        B1.grid(row=row_count, column=0,ipadx=10,ipady=10,padx=20,pady=5)
+    elif i % 3 == 1:        
+        B1 = ttk.Button(BF1,text=current_stock[i][1])
+        B1.grid(row=row_count, column=1,ipadx=10,ipady=10,padx=5,pady=5)
+    elif i % 3 == 2:
+        B1 = ttk.Button(BF1,text=current_stock[i][1])
+        B1.grid(row=row_count, column=2,ipadx=10,ipady=10,padx=20,pady=5)   
+        row_count += 1    
+    # B1.place(x=50, y=50 * (i+0.5))
+
+## Treeview()##
+
+header = ['Barcode','Products','Price','Amount','Total','Last Update']
+w = [70,150,70,70,70,160]
+
+apB1 = ttk.Treeview(F1, height=10, column=header, show="headings")
+apB1.place(x=430, y=30)
+
+for hd in header:
+    apB1.heading(hd, text=hd)
+for hd,w in zip(header,w):
+    apB1.column(hd, width=w)
+
 GUI.mainloop()
